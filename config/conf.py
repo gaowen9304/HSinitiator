@@ -6,21 +6,12 @@
 # @Email   : 1061183361@qq.com
 # @File    : conf.py
 # @Desc    :
-
-
-import os
-
-import yaml
-
-from config.const import Const
+from config.baseconf import AppConf, VerConf
 
 
 def init_conf():
-    confPath = Const.CONF_PATH
-    if not os.path.exists(confPath):
-        raise AssertionError('配置文件不存在,请检查!')
+    for conf in [AppConf, VerConf]:
+        conf.load()
 
-    with open(confPath, 'r', encoding='utf-8') as f:
-        content = f.read()
-
-    yaml.load(content, yaml.FullLoader)
+    if isinstance(VerConf.REMOVE_DICT, dict):
+        VerConf.REMOVE_DICT = {}

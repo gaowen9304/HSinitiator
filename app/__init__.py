@@ -7,11 +7,13 @@
 # @File    : __init__.py.py
 # @Desc    :
 from app.app import App
+from config.conf import init_conf
 from config.const import Const
 from libs.log import init_log
 
 
 def run_app():
     init_log(logName=Const.APP_NAME)
+    init_conf()
     app = App()
     app.run()

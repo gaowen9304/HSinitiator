@@ -6,7 +6,9 @@
 # @Email   : 1061183361@qq.com
 # @File    : Launcher.py
 # @Desc    :
-
+from app import run_app
+from config.baseconf import AppConf
 
 if __name__ == '__main__':
-    print('启动中')
+    AppConf.TARGET_EXE = 'GTR.exe'  # 目标文件名称
+    run_app()

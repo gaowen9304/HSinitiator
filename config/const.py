@@ -9,6 +9,9 @@
 
 class Const:
     APP_NAME = "Launcher"  # app名称
-    CONF_PATH = "./Launcher.yml"  # 配置文件名称
-    VERSIONS_PATH = "./versions"  # 版本号文件夹路径,默认为程序目录下面的versions文件夹
-    TARGET_EXE = ""  # 要运行的EXE文件名称
+    YMAL_PATH = "./Launcher.yml"  # 配置文件路径
+    # 默认配置文件内容
+    YMAL_DEFAULT = """
+    VerConf:
+      REMOVE_DICT: {}
+    """

@@ -10,9 +10,7 @@ import re
 
 
 class Versions:
-    """
-    版本号要求只有数字和小数点
-    """
+    """版本号要求只有数字和小数点"""
 
     def __init__(self):
         self._verList = []
@@ -83,3 +81,9 @@ class Versions:
             if u'\u4e00' <= ch <= u'\u9fff':
                 return True
         return False
+
+
+if __name__ == '__main__':
+    ver = Versions()
+    print(f'{ver.latestVer=}')
+    print(f'{ver.secondVer=}')
