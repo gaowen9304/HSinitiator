@@ -70,8 +70,11 @@ class App:
                     continue
             verDir = os.path.abspath(os.path.join(AppConf.VERSIONS_PATH, ver))
             if os.path.exists(verDir):
-                # 文件夹存在,执行删除文件夹的操作,版本号信息在下次启动的时候回自动删除
-                shutil.rmtree(verDir)
+                try:
+                    # 文件夹存在,执行删除文件夹的操作,版本号信息在下次启动的时候回自动删除
+                    shutil.rmtree(verDir)
+                except:
+                    pass
             else:
                 # 文件夹不存在,加入到removeKeyList中,遍历完成后集中删除
                 removeKeyList.append(ver)
@@ -81,6 +84,7 @@ class App:
             if key in removeDict.keys():
                 removeDict.pop(key)
         # 保存配置文件
+
         VerConf.set('REMOVE_DICT', removeDict)
 
     def _add_second_version(self):
