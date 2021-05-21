@@ -10,6 +10,7 @@ from app import run_app
 from config.baseconf import AppConf
 
 # pyinstaller --clean --win-private-assemblies -F -w -i resource\GTR.ico Launcher.py
+# pyinstaller -D Launcher.py
 
 if __name__ == '__main__':
     AppConf.TARGET_EXE = 'GTR.exe'  # 目标文件名称
