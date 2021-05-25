@@ -133,14 +133,12 @@ class App:
         :param latestConfPath:最新版本配置文件路径
         :return:
         """
-        logger.info(f'复制配置文件:{latestConfPath}')
-        if os.path.exists(latestConfPath):
+        if not os.path.exists(latestConfPath):
             secondVer = self._ver.secondVer
             secondConfPath = self._conf_path(secondVer)
             if os.path.exists(secondConfPath):
                 shutil.copy(secondConfPath, latestConfPath)
                 logger.info(f'复制配置文件:{secondConfPath} 到 {latestConfPath}')
-        logger.info(f'复制配置文件结束')
 
     @staticmethod
     def _conf_path(version: str):
