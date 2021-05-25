@@ -6,6 +6,8 @@
 # @Email   : 1061183361@qq.com
 # @File    : Launcher.py
 # @Desc    :
+import os
+import sys
 from app import run_app
 from config.baseconf import AppConf
 
@@ -13,5 +15,6 @@ from config.baseconf import AppConf
 # pyinstaller -D Launcher.py
 
 if __name__ == '__main__':
+    os.chdir(os.path.abspath(os.path.dirname(sys.argv[0])))
     AppConf.TARGET_EXE = 'GTR.exe'  # 目标文件名称
     run_app()
