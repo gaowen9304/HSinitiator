@@ -95,8 +95,6 @@ class App:
         if not VerConf.REMOVE_DICT:
             VerConf.REMOVE_DICT = {}
         removeDict = VerConf.REMOVE_DICT
-        logger.info(f'{secondVer=}')
-        logger.info(f'{removeDict=}')
         if not secondVer or secondVer in removeDict.keys():
             return
         removeTime = datetime.now() + timedelta(days=AppConf.REMOVE_INTERVAL)

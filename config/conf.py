@@ -13,5 +13,5 @@ def init_conf():
     for conf in [AppConf, VerConf]:
         conf.load()
 
-    if isinstance(VerConf.REMOVE_DICT, dict):
+    if not isinstance(VerConf.REMOVE_DICT, dict):
         VerConf.REMOVE_DICT = {}
