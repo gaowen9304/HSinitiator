@@ -254,7 +254,7 @@ class AppConf(BaseConf):
     TARGET_EXE = ""  # 要运行的EXE文件名称,在最新版本号文件夹下必须存在
     VERSIONS_PATH = "./versions"  # 版本号文件夹路径,默认为程序目录下面的versions文件夹
     CONF_FILE_NAME = "conf.yml"  # 要启动软件的配置文件名
-    REMOVE_INTERVAL = 7  # 默认删除旧版本的时间间隔为7天
+    REMOVE_INTERVAL = 3  # 默认删除旧版本的时间间隔为7天
 
 
 class VerConf(BaseConf):
