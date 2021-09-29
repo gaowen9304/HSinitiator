@@ -66,13 +66,14 @@ class App:
             if ver == self._ver.latestVer:
                 continue
             if isinstance(removeTime, datetime):
-                if (datetime.now() - removeTime).seconds <= 0:
+                if datetime.now() < removeTime:
                     continue
             verDir = os.path.abspath(os.path.join(AppConf.VERSIONS_PATH, ver))
             if os.path.exists(verDir):
                 try:
                     # 文件夹存在,执行删除文件夹的操作,版本号信息在下次启动的时候回自动删除
                     shutil.rmtree(verDir)
+                    logger.info(f"删除旧版本:{verDir}")
                 except:
                     logger.exception(f'删除文件夹失败:{verDir}')
             else:
@@ -109,12 +110,8 @@ class App:
         latestVer = self._ver.latestVer
         latestConfPath = self._conf_path(latestVer)
         exePath = self._exe_path(latestVer)
-        if not latestVer:
-            messagebox.showerror(title='错误', message=f'缺失启动文件:{latestVer}')
-            return False
-
-        if not os.path.exists(exePath):
-            messagebox.showerror(title='错误', message=f'缺失启动文件:{exePath}')
+        if not latestVer or not os.path.exists(exePath):
+            messagebox.showerror(title='错误', message=f'缺失启动文件:{latestVer} {exePath}')
             return False
 
         # 复制配置文件
